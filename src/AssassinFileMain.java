@@ -1,5 +1,4 @@
-// EGR221 Homework 3 Assasin
-// Instructor-provided testing program.
+// Benjamin Brodwolf
 
 import java.io.*;
 import java.util.*;
