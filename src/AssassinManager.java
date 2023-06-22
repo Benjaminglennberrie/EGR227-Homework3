@@ -11,7 +11,7 @@ public class AssassinManager {
 
     //pre: construct an AssassinManager object from a given list of strings
     //post: creates a linkedlist of assassin nodes from names in the list
-    //throws exception if the list is null or empty
+
     public AssassinManager(List<String> names){
         if(names == null || names.isEmpty())
             throw new IllegalArgumentException("List may not be null or empty.");
@@ -44,15 +44,7 @@ public class AssassinManager {
         }
     }
 
-    //pre: print out graveyard
-    //post: prints graveyard along with their killer; if graveyard is empty nothing happens
-    public void printGraveyard(){
-        AssassinNode current = graveyardFront;
-        while(current != null){
-            System.out.println("    " + current.name + " was killed by " + current.killer);
-            current = current.next;
-        }
-    }
+
 
     //pre: determine if game is over
     //post: returns true if there is only one person in the kill ring; otherwise false
@@ -75,6 +67,17 @@ public class AssassinManager {
         }
         return false;
     }
+
+    //pre: print out graveyard
+    //post: prints graveyard along with their killer; if graveyard is empty nothing happens
+    public void printGraveyard(){
+        AssassinNode current = graveyardFront;
+        while(current != null){
+            System.out.println("    " + current.name + " was killed by " + current.killer);
+            current = current.next;
+        }
+    }
+
 
     //pre: check if a name is in the kill ring
     //post: returns true if name is found; otherwise false

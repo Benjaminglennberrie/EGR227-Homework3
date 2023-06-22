@@ -33,10 +33,8 @@ public class AssassinFileMain {
                 }
             }
 
-            // Shuffle if desired
-            if (yesTo(lineScanner, "Do you want the names shuffled?", outFile)) {
-                Collections.shuffle(names2);
-            }
+
+
             // Make an immutable version and use it to build an AssassinManager
             List<String> names3 = Collections.unmodifiableList(names2);
             AssassinManager manager = new AssassinManager(names3);
@@ -47,6 +45,10 @@ public class AssassinFileMain {
                 // Prompt the user for victims until the game is over
                 while (!manager.isGameOver())
                     oneKill(nameScanner, manager, outFile);
+            }
+            // Move around
+            if (yesTo(lineScanner, "Do you want the names shuffled?", outFile)) {
+                Collections.shuffle(names2);
             }
             // Report who won
             outFile.println("Game was won by " + manager.winner());
@@ -60,6 +62,7 @@ public class AssassinFileMain {
     // ring and graveyard to the user, prompts for a name and records the
     // kill if the name is legal.
     public static void oneKill(Scanner nameScanner, AssassinManager manager, PrintWriter outFile) {
+
         outFile.println("Current kill ring:");
         manager.printKillRing(outFile);
         outFile.println("Current graveyard:");
@@ -68,6 +71,7 @@ public class AssassinFileMain {
         outFile.print("next victim? ");
         String name = nameScanner.next().trim();
         outFile.println(name);
+
         if (manager.graveyardContains(name)) {
             outFile.println(name + " is already dead.");
         } else if (!manager.killRingContains(name)) {

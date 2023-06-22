@@ -28,11 +28,8 @@ public class AssassinManagerTest {
         Assert.assertFalse(manager.graveyardContains("ocean"));
     }
 
-    /**
-     * Test case 2 provided as an example
-     * Test constructor with invalid argument
-     * Should throw IllegalArgumentException
-     */
+
+
     @Test
     public void constructorNegativeTest(){
         try{
